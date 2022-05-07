@@ -70,10 +70,11 @@ play_again(self): Get an input from player if he wants to play again
 display_card(self):
     return 
 
-guess(self):
-    takes input of higher or lower
+guess=
+    gets an input of higher or lower
 
 evaluate_guess(self):
-    if guessed correct points added
+    looks at display_card before and after guess
+    if guess is correct points added
     else points deducted
     return score
