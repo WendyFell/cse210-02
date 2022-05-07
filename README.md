@@ -17,12 +17,6 @@ If a player reaches 0 points the game is over.
 If a player has more than 0 points they decide if they want to keep playing.
 If a player decides not to play again the game is over.
 
-Need to draw a card-function in dealer class
-Need to ask player to guess higher or lower-input with variable in dealer class
-Need to draw another card-function in dealer class
-Evaluate if guess is true or false-function in dealer
-Score guess-function in dealer
-Ask player to play again-input with variable in dealer class
 
 
 
@@ -51,5 +45,35 @@ cards
     parameters-value
     return types-random choose number between 1 and 13
 
+Need to draw a card-function in dealer class
+Need to ask player to guess higher or lower-input with variable in dealer class
+Need to draw another card-function in dealer class
+Evaluate if guess is true or false-function in dealer
+Score guess-function in dealer
+Ask player to play again-input with variable in dealer class
 
-NEW CODE
+
+METHODS:
+__init__(self)
+    attributes:
+        is_playing
+        score
+        total_score
+        cards
+
+start_game(self): Starts the game by running a loop.
+    Return: None
+
+play_again(self): Get an input from player if he wants to play again
+    return: start game if yes
+
+display_card(self):
+    return 
+
+guess(self):
+    takes input of higher or lower
+
+evaluate_guess(self):
+    if guessed correct points added
+    else points deducted
+    return score
