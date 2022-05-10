@@ -1,5 +1,16 @@
-from random import randint.
-number = randint(1,13)
-score = 0
-print (f"First card: {number}") (f“Current Number: str{number}")
+import random
+from card import Card
+
+class Dealer:
+    
+    def __init__(self):
+        self.still_playing = True
+        self.score = 0
+        card = Card() 
+        card.draw()
+
+
+
 userGUess = input("Guess higher or lower(H or L): ")
+
+dealer = Dealer()
