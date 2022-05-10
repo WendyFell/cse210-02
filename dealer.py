@@ -7,8 +7,8 @@ class Dealer:
         self.cards = []
         self.still_playing = True
         self.score = 300
-        card = Card() 
-        card.draw()
+        self.card = Card() 
+        
 
     def start_game(self):
         """Start the game by running the main game loop
@@ -31,14 +31,20 @@ class Dealer:
         """
         if not self.still_playing:
             return
-        # if self.userGuess == "H" and self.card_drawn > self.card_drawn:
+        elif self.userGuess == "H" and self.cards[0] < self.cards[1] or self.userGuess == "L" and self.cards[0] > self.cards[1]:
+            self.score += 100
+        elif self.userGuess == "L" and self.cards[0] < self.cards[1] or self.userGuess == "H" and self.cards[0] > self.cards[1]:
+            self.score -= 75  
 
     def do_outputs(self):
         """Displays the first card, call get_inputs, display the second card and the score.
         Args: self(Dealer)": An instance of Dealer.
         """
-        
+        for i in range(2):
+            self.cards.append(self.card.draw())
+        print(self.cards)
 
-
+# dealer = Dealer()
+# dealer.do_outputs()
 
 # dealer = Dealer()
