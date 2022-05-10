@@ -71,6 +71,8 @@ class Dealer:
             
             willingness = input("Would you like to draw another card? (Y or N) ")
             willingness = willingness.lower()
-
             self.still_playing = (willingness == "y")
+            if willingness == "n":
+                print("Thanks for playing")
+               
         print()
