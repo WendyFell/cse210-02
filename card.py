@@ -15,16 +15,19 @@ class Card:
         Args:
             self (Card): An instance of Card.
         """
-        self.value = 0
+        self.suits = 0
+        self.cards = 0
         
     def draw(self):
-        """Generates a new random value.
+        """Generates a new random card and suit.
         
         Args:
-            self (Card): An instance of Die.
+            self (Card): An instance of Card.
         """
-        self.value = random.randint(1, 13)
+        self.suits = random.choice(['\u2666', '\u2665', '\u2663', '\u2660'])
+        self.cards = random.randint(1, 13)           
+        print(f'{self.cards}{self.suits}')
         
-# this is a test
+
         
         
