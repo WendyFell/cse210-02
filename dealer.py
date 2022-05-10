@@ -23,7 +23,6 @@ class Dealer:
             self.do_outputs()
             self.play_again()
 
-
     def get_inputs(self):
         """Ask user for a guess of higher or lower.
         Args: self(Dealer)": An instance of Dealer.
@@ -36,33 +35,31 @@ class Dealer:
         """
         
         if not self.still_playing:
-            
             return
         if self.userGuess == "H" and self.cards[0] < self.cards[1] or self.userGuess == "L" and self.cards[0] > self.cards[1]:
-            
             self.score += 100
-        else: #self.userGuess == "L" and self.cards[0] < self.cards[1] or self.userGuess == "H" and self.cards[0] > self.cards[1]:
-            
+        else:
             self.score -= 75  
         
     def get_cards(self):
         """Displays the first card, call get_inputs, display the second card and the score.
         Args: self(Dealer)": An instance of Dealer.
         """
-        self.cards.clear()
-        for i in range(2):
+        if len(self.cards) > 1: 
+            self.cards.pop(0)
             self.cards.append(self.card.draw())
+        else:
+            for i in range(2):
+                self.cards.append(self.card.draw())
 
     def do_outputs(self):
         """ Display the score"""
         print(f"Your score is {self.score}")
         
         self.still_playing == (self.score > 0)
-
     
     def play_again(self):
         """Ask the user if they want to roll.
-
         Args:
             self (Director): An instance of Director.
         """
@@ -72,6 +69,5 @@ class Dealer:
             
             willingness = input("Play again? [y/n] ")
             willingness = willingness.lower()
-
             self.still_playing = (willingness == "y")
         print()
