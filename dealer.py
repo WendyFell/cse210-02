@@ -1,4 +1,3 @@
-
 from card import Card
 
 class Dealer:
@@ -16,11 +15,9 @@ class Dealer:
         """
         while self.still_playing:
             self.get_cards()
-            print(f"Your Card is: {self.cards[0]}")
             self.get_inputs()
-            print(f"Your next card was: {self.cards[1]}")
             self.do_updates()
-            self.do_outputs()
+            self.do_outputs()                       
             self.play_again()
 
     def get_inputs(self):
@@ -36,16 +33,14 @@ class Dealer:
         
     def do_updates(self):
         """Updates the score.
-        """
-        
+         Args: self(Dealer)": An instance of Dealer.
+        """        
         if not self.still_playing:
             return
         if self.userGuess == "H" and self.cards[0] < self.cards[1] or self.userGuess == "L" and self.cards[0] > self.cards[1]:
             self.score += 100
         else:
-            self.score -= 75  
-       
-        
+            self.score -= 75         
         
     def get_cards(self):
         """Displays the first card, call get_inputs, display the second card and the score.
@@ -57,23 +52,26 @@ class Dealer:
         else:
             for i in range(2):
                 self.cards.append(self.card.draw())
-
+        print(f"Your Card is: {self.cards[0]}")
+        
     def do_outputs(self):
-        """ Display the score"""
+        """ Display the score.
+        Args: self(Dealer)": An instance of Dealer.
+        """
+        print(f"Your next card was: {self.cards[1]}")
         while self.still_playing == (self.score <=0):
             print("Game over!")
             break
         else:
             print(f"Your score is {self.score}")
             
-            self.still_playing == (self.score > 0)
-        
+            self.still_playing == (self.score > 0)        
     
     def play_again(self):
         """Ask the user if they want to draw another card.
 
         Args:
-            self (Director): An instance of Director.
+            self (Dealer): An instance of Dealer.
         """
         while self.score <= 0:
             self.still_playing = False
@@ -85,8 +83,8 @@ class Dealer:
             willingness = willingness.lower()
             self.still_playing = (willingness == "y")
             if willingness == "n":
-                print("Thanks for playing")
+                print("Thanks for playing!")
             if willingness != "y" and willingness !="n":
                     
-                print("Please enter a valid choice")
+                print("Please enter a valid choice (Y or N)")
                 self.play_again()
