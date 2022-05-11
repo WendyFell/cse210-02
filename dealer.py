@@ -1,3 +1,4 @@
+
 from card import Card
 
 class Dealer:
@@ -15,9 +16,9 @@ class Dealer:
         """
         while self.still_playing:
             self.get_cards()
-            print(f"Your Card is {self.cards[0]}")
+            print(f"Your Card is: {self.cards[0]}")
             self.get_inputs()
-            print(f"Your next card is {self.cards[1]}")
+            print(f"Your next card was: {self.cards[1]}")
             self.do_updates()
             self.do_outputs()
             self.play_again()
@@ -28,7 +29,11 @@ class Dealer:
         """
         self.userGuess = input("Guess if the next card will be higher or lower (H or L): ")
         self.userGuess = self.userGuess.upper()
-    
+        while self.userGuess != "H" and self.userGuess != "L":
+            print("Please enter a valid choice (H or L)")
+            self.get_inputs()        
+            break
+        
     def do_updates(self):
         """Updates the score.
         """
@@ -39,6 +44,8 @@ class Dealer:
             self.score += 100
         else:
             self.score -= 75  
+       
+        
         
     def get_cards(self):
         """Displays the first card, call get_inputs, display the second card and the score.
@@ -53,9 +60,14 @@ class Dealer:
 
     def do_outputs(self):
         """ Display the score"""
-        print(f"Your score is {self.score}")
+        while self.still_playing == (self.score <=0):
+            print("Game over!")
+            break
+        else:
+            print(f"Your score is {self.score}")
+            
+            self.still_playing == (self.score > 0)
         
-        self.still_playing == (self.score > 0)
     
     def play_again(self):
         """Ask the user if they want to draw another card.
@@ -63,8 +75,10 @@ class Dealer:
         Args:
             self (Director): An instance of Director.
         """
-        if self.score <= 0:
+        while self.score <= 0:
             self.still_playing = False
+            break
+            
         else:
             
             willingness = input("Would you like to draw another card? (Y or N) ")
@@ -72,5 +86,7 @@ class Dealer:
             self.still_playing = (willingness == "y")
             if willingness == "n":
                 print("Thanks for playing")
-               
-        print()
+            if willingness != "y" and willingness !="n":
+                    
+                print("Please enter a valid choice")
+                self.play_again()
