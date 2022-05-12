@@ -15,7 +15,7 @@ class Card:
         Args:
             self (Card): An instance of Card.
         """
-        self.suits = 0
+        # self.suits = 0
         self.cards = 0
         
     def draw(self):
@@ -24,11 +24,11 @@ class Card:
         Args:
             self (Card): An instance of Card.
         """
-        self.suits = random.choice(['\u2666', '\u2665', '\u2663', '\u2660'])
+        # self.suits = random.choice(['\u2666', '\u2665', '\u2663', '\u2660'])
         self.cards = random.randint(1, 13)    
-        card_drawn = (f"{self.cards} {self.suits}")       
+        # card_drawn = (f"{self.cards} {self.suits}")       
         
-        return self.cards
+        # return self.cards
 
         
         

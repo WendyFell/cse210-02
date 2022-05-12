@@ -13,12 +13,17 @@ class Dealer:
         """Start the game by running the main game loop
         Args: self(Dealer): An instance of Dealer
         """
+        print()
+        print("Welcome to the HILO card game!")
+        print()
         while self.still_playing:
             self.get_cards()
             self.get_inputs()
             self.do_updates()
-            self.do_outputs()                       
-            self.play_again()
+            self.do_outputs() 
+            print()                      
+            self.play_again()         
+            print('\u2666', '\u2665', '\u2663', '\u2660', '\u2666', '\u2665', '\u2663', '\u2660','\u2666', '\u2665', '\u2663', '\u2660', '\u2666', '\u2665', '\u2663', '\u2660', '\u2666', '\u2665', '\u2663', '\u2660','\u2666', '\u2665', '\u2663', '\u2660')
 
     def get_inputs(self):
         """Ask user for a guess of higher or lower.
@@ -39,6 +44,8 @@ class Dealer:
             return
         if self.userGuess == "H" and self.cards[0] < self.cards[1] or self.userGuess == "L" and self.cards[0] > self.cards[1]:
             self.score += 100
+        elif self.userGuess == "H" and self.cards[0] == self.cards[1] or self.userGuess == "L" and self.cards[0] == self.cards[1]:
+            self.score = self.score
         else:
             self.score -= 75         
         
@@ -46,6 +53,7 @@ class Dealer:
         """Displays the first card, call get_inputs, display the second card and the score.
         Args: self(Dealer)": An instance of Dealer.
         """
+        
         if len(self.cards) > 1: 
             self.cards.pop(0)
             self.cards.append(self.card.draw())
