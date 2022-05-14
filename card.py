@@ -28,7 +28,7 @@ class Card:
         self.cards = random.randint(1, 13)    
         # card_drawn = (f"{self.cards} {self.suits}")       
         
-        # return self.cards
+        return self.cards
 
         
         
