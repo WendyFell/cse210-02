@@ -1,6 +1,19 @@
 from card import Card
 
 class Dealer:
+    """A person who directs the game. 
+    
+    	The responsibility of a Dealer is to control the sequence of play.
+
+        Attributes:
+        cards: A list to append the cards drawn.
+        still_playing (boolean): Whether or not the game is being played.
+        score (int): The score the player starts the game.
+        userGuess (input): A variable to use as an input to be enter by                         
+	    card: An instance of Card.
+        the player.
+       """
+
     
     def __init__(self):
         self.cards = []
